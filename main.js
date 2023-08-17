@@ -1,7 +1,8 @@
 
 var _scannerIsRunning = false;
+let ListaCamaras=[]
 
-function startScanner() {
+function startScanner(cam) {
     Quagga.init({
         locate: false,
         inputStream: {
@@ -11,7 +12,8 @@ function startScanner() {
             constraints: {
                 width: 600,
                 height: 600,
-                facingMode: "environment"
+                facingMode: "environment",
+                deviceId: cam
             },
         },
         decoder: {
@@ -84,16 +86,24 @@ function startScanner() {
         console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
     });
     Quagga.CameraAccess.enumerateVideoDevices().then(result=>{
-        console.log("este es el resultado")
-        console.log(result)
-        let select = document.getElementById("select")
-        let camaras=result;
-        camaras.forEach(camara => {
-        select.innerHTML+=`<option value="${camara.label}">${camara.label}</option>` 
-});
-              
+        ListaCamaras=result
+        cargarSelect(result)
     })
+
+              
     
+    
+}
+
+function cargarSelect(lista){
+    let select = document.getElementById("select")
+    select.innerHTML=''
+   lista.forEach(camara => {
+                 select.innerHTML+=`<option value="${camara.label}">${camara.label}</option>`
+     });
+     select.addEventListener("change",(e)=>{
+        camaraId=ListaCamaras.find((camara)=>camara.label==e.target.value).deviceId
+        startScanner(camaraId)},false)
 }
 
 
