@@ -3,13 +3,14 @@ var _scannerIsRunning = false;
 
 function startScanner() {
     Quagga.init({
+        locate: false,
         inputStream: {
             name: "Live",
             type: "LiveStream",
             target: document.querySelector('#scanner-container'),
             constraints: {
-                width: 480,
-                height: 320,
+                width: 600,
+                height: 600,
                 facingMode: "environment"
             },
         },
@@ -26,13 +27,13 @@ function startScanner() {
                 "i2of5_reader"
             ],
             debug: {
-                showCanvas: true,
-                showPatches: true,
-                showFoundPatches: true,
-                showSkeleton: true,
-                showLabels: true,
-                showPatchLabels: true,
-                showRemainingPatchLabels: true,
+                showCanvas: false,
+                showPatches: false,
+                showFoundPatches: false,
+                showSkeleton: false,
+                showLabels: false,
+                showPatchLabels: false,
+                showRemainingPatchLabels: false,
                 boxFromPatches: {
                     showTransformed: true,
                     showTransformedBox: true,
@@ -82,6 +83,19 @@ function startScanner() {
     Quagga.onDetected(function (result) {
         console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
     });
+    Quagga.CameraAccess.enumerateVideoDevices().then(result=>{
+        console.log("este es el resultado")
+        console.log(result)
+        let div = document.getElementById("camaras")
+        let camaras=result;
+        camaras.forEach(camara => {
+        let unaCamara=document.createElement("h1")
+        unaCamara.innerText=`etiqueta de la camara: ${camara.label} id de la camara: ${camara.deviceId} `
+        div.appendChild(unaCamara)    
+        });
+              
+    })
+    
 }
 
 
