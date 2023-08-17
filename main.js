@@ -86,13 +86,11 @@ function startScanner() {
     Quagga.CameraAccess.enumerateVideoDevices().then(result=>{
         console.log("este es el resultado")
         console.log(result)
-        let div = document.getElementById("camaras")
+        let select = document.getElementById("select")
         let camaras=result;
         camaras.forEach(camara => {
-        let unaCamara=document.createElement("h1")
-        unaCamara.innerText=`etiqueta de la camara: ${camara.label} id de la camara: ${camara.deviceId} `
-        div.appendChild(unaCamara)    
-        });
+        select.innerHTML+=`<option value="${camara.label}">${camara.label}</option>` 
+});
               
     })
     
