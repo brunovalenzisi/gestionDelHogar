@@ -19,8 +19,8 @@ function startScannerCam(cam) {
          type: "LiveStream",
          target: document.querySelector('#scanner-container'),
          constraints: {
-             width: 300,
-             height: 300,
+             width: 150,
+             height: 150,
              deviceId: `${cam}` 
          },
      },
