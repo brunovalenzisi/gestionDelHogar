@@ -66,7 +66,7 @@ function startScannerCam(cam) {
 
      console.log("Initialization finished. Ready to start");
      Quagga.start();
-     Quagga.CameraAccess()
+     Quagga.CameraAccess.enableTorch()
 
      // Set flag to is running
      _scannerIsRunning = true;
