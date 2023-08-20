@@ -22,6 +22,7 @@ function startScannerCam(cam) {
              deviceId: `${cam}` 
          },
      },
+     frecuency:30,
      decoder: {
          readers: [
 
