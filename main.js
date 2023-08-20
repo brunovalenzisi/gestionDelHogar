@@ -2,7 +2,7 @@
 
 let torch=false
 nodeLinterna=document.getElementById("linterna")
-nodeLinterna.addEventListener("click",switchLinterna,false)
+nodeLinterna.addEventListener("click",()=>{switchLinterna()},false)
 var _scannerIsRunning = false;
 resultados=new ListaDeResultados
 navigator.mediaDevices.enumerateDevices().then(result=>{
@@ -19,8 +19,8 @@ function startScannerCam(cam) {
          type: "LiveStream",
          target: document.querySelector('#scanner-container'),
          constraints: {
-             width: 1000,
-             height: 1000,
+             width: 300,
+             height: 300,
              deviceId: `${cam}` 
          },
      },
