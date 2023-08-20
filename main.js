@@ -3,103 +3,11 @@
 
 var _scannerIsRunning = false;
 resultados=new ListaDeResultados
+navigator.mediaDevices.enumerateDevices().then(result=>{
+    cargarSelect(result)
+})
 
-
-/*
-function startScanner() {
-       Quagga.init({
-        numOfWorkers: navigator.hardwareConcurrency,
-        locate: true,
-        inputStream: {
-            name: "Live",
-            type: "LiveStream",
-            target: document.querySelector('#scanner-container'),
-            constraints: {
-                width: 600,
-                height: 600,
-                },
-               area:{
-                top:"30%",
-                right:"5%",
-                left:"5%",
-                bottom:"30%",
-                
-               }
-        },
-        decoder: {
-            
-            locator:{
-                halfSample: true,
-                pathSize: "medium",//x-small,small,medium,large,x-large
-
-
-            },
-            debug: {
-                showCanvas: false,
-                showPatches: false,
-                showFoundPatches: false,
-                showSkeleton: false,
-                showLabels: false,
-                showPatchLabels: false,
-                showRemainingPatchLabels: false,
-                boxFromPatches: {
-                    showTransformed: true,
-                    showTransformedBox: true,
-                    showBB: true
-                }
-            },
-            multiple:false
-        },
-
-    }, function (err) {
-        if (err) {
-            console.log(err);
-            return
-        }
-
-        console.log("Initialization finished. Ready to start");
-        Quagga.CameraAccess.enumerateVideoDevices().then(result=>{
-            cargarSelect(result)
-        })
-});
-
-    Quagga.onProcessed(function (result) {
-        var drawingCtx = Quagga.canvas.ctx.overlay,
-        drawingCanvas = Quagga.canvas.dom.overlay;
-     
-
-        if (result) {
-            if (result.boxes) {
-                drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
-                result.boxes.filter(function (box) {
-                    return box !== result.box;
-                }).forEach(function (box) {
-                    Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 2 });
-                });
-            }
-
-            if (result.box) {
-                Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "#00F", lineWidth: 2 });
-            }
-
-            if (result.codeResult && result.codeResult.code) {
-                Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
-            }
-        }
-    });
-
-
-    Quagga.onDetected(function (result) {
-        console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
-        //document.getElementById("comenzar").click()
-    });
- 
-}
-*/
-
-
-
-function startScanner() {
+function startScannerCam(cam) {
     Quagga.init({
         numOfWorkers: navigator.hardwareConcurrency,
        locate: true,
@@ -108,9 +16,10 @@ function startScanner() {
          type: "LiveStream",
          target: document.querySelector('#scanner-container'),
          constraints: {
-             width: 600,
-             height: 600,
-             facingmode: "user"
+             width: 1000,
+             height: 500,
+             facingMode: "environment",
+             deviceId: cam 
          },
      },
      decoder: {
@@ -199,8 +108,7 @@ function cargarSelect(result){
                  select.innerHTML+=`<option value="${camara.label}">${camara.label}</option>`
      });
      select.addEventListener("change",(e)=>{
-        camaraId=`${listaDeCamaras.find((camara)=>camara.label==e.target.value).deviceId}`
-        Quagga.stop()
+        camaraId=listaDeCamaras.find((camara)=>camara.label==e.target.value).id
         startScannerCam(camaraId)
     },false)
     }
