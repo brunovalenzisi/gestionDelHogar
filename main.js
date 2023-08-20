@@ -5,7 +5,7 @@ var _scannerIsRunning = false;
 resultados=new ListaDeResultados
 
 
-
+/*
 function startScanner() {
        Quagga.init({
         numOfWorkers: navigator.hardwareConcurrency,
@@ -95,10 +95,11 @@ function startScanner() {
     });
  
 }
+*/
 
 
 
-function startScannerCam(cam) {
+function startScanner() {
     Quagga.init({
         numOfWorkers: navigator.hardwareConcurrency,
        locate: true,
@@ -109,7 +110,7 @@ function startScannerCam(cam) {
          constraints: {
              width: 600,
              height: 600,
-             deviceId: cam 
+             facingmode: "user"
          },
      },
      decoder: {
