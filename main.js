@@ -1,6 +1,7 @@
 
 
 
+
 var _scannerIsRunning = false;
 resultados=new ListaDeResultados
 navigator.mediaDevices.enumerateDevices().then(result=>{
@@ -65,6 +66,7 @@ function startScannerCam(cam) {
 
      console.log("Initialization finished. Ready to start");
      Quagga.start();
+     Quagga.CameraAccess()
 
      // Set flag to is running
      _scannerIsRunning = true;
