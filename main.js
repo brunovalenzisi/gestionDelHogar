@@ -12,7 +12,7 @@ navigator.mediaDevices.enumerateDevices().then(result=>{
 
 function startScannerCam(cam) {
     Quagga.init({
-        numOfWorkers: navigator.hardwareConcurrency,
+       numOfWorkers: navigator.hardwareConcurrency,
        locate: true,
        inputStream: {
          name: "Live",
@@ -23,7 +23,14 @@ function startScannerCam(cam) {
              height: 150,
              deviceId: `${cam}` 
          },
+         area: { // defines rectangle of the detection/localization area
+            top: "5%",    // top offset
+            right: "5%",  // right offset
+            left: "5%",   // left offset
+            bottom: "5%"  // bottom offset
+          },
      },
+
      frecuency:30,
      decoder: {
          readers: [
