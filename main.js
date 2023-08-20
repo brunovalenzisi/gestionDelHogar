@@ -133,7 +133,7 @@ function switchLinterna(){
     if(torch){
         Quagga.CameraAccess.disableTorch()
         torch=false
-    }else{
+    }else if(!torch){
         Quagga.CameraAccess.enableTorch()
         torch=true
         }
