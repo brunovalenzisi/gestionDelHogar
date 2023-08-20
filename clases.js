@@ -20,7 +20,7 @@ encontrarVerdadero(){
         return resultado.cantidad;
       });
       let mayorLectura=Math.max(...cantidades)
-      if(lecturasTotales>=50 && mayorLectura/lecturasTotales>=0.3){
+      if(lecturasTotales>=10 && mayorLectura/lecturasTotales>=0.3){
         let codigoResultado=this.lista.find((res)=>res.cantidad==mayorLectura).codigo
    alert(`el codigo es: ${codigoResultado}` )
    this.limpiarLista()
