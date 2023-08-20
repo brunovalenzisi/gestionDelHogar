@@ -1,5 +1,6 @@
 
 
+
 var _scannerIsRunning = false;
 resultados=new ListaDeResultados
 
@@ -198,6 +199,7 @@ function cargarSelect(result){
      });
      select.addEventListener("change",(e)=>{
         camaraId=`${listaDeCamaras.find((camara)=>camara.label==e.target.value).deviceId}`
+        Quagga.stop()
         startScannerCam(camaraId)
     },false)
     }
