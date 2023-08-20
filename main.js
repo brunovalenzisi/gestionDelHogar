@@ -1,7 +1,8 @@
 
 
-
-
+let torch=false
+nodeLinterna=document.getElementById("linterna")
+nodeLinterna.addEventListener("click",switchLinterna,false)
 var _scannerIsRunning = false;
 resultados=new ListaDeResultados
 navigator.mediaDevices.enumerateDevices().then(result=>{
@@ -66,7 +67,7 @@ function startScannerCam(cam) {
 
      console.log("Initialization finished. Ready to start");
      Quagga.start();
-     Quagga.CameraAccess.enableTorch()
+     
 
      // Set flag to is running
      _scannerIsRunning = true;
@@ -127,6 +128,16 @@ document.getElementById("comenzar").addEventListener("click", function () {
         startScanner();
     }
 }, false);
+
+function switchLinterna(){
+    if(torch){
+        Quagga.CameraAccess.disableTorch()
+        torch=false
+    }else{
+        Quagga.CameraAccess.enableTorch()
+        torch=true
+        }
+}
 
 
 
