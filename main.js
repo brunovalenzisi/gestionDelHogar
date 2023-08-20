@@ -4,6 +4,7 @@
 var _scannerIsRunning = false;
 resultados=new ListaDeResultados
 navigator.mediaDevices.enumerateDevices().then(result=>{
+    console.log(result[1].deviceId)
     cargarSelect(result)
 })
 
@@ -17,9 +18,8 @@ function startScannerCam(cam) {
          target: document.querySelector('#scanner-container'),
          constraints: {
              width: 1000,
-             height: 500,
-             facingMode: "environment",
-             deviceId: cam 
+             height: 1000,
+             deviceId: `${cam}` 
          },
      },
      decoder: {
@@ -105,10 +105,10 @@ function cargarSelect(result){
    let select = document.getElementById("select")
    select.innerHTML=''
    listaDeCamaras.forEach(camara => {
-                 select.innerHTML+=`<option value="${camara.label}">${camara.label}</option>`
+                 select.innerHTML+=`<option value="${camara.label}">${camara.label} ${camara.deviceId} </option>`
      });
      select.addEventListener("change",(e)=>{
-        camaraId=listaDeCamaras.find((camara)=>camara.label==e.target.value).id
+        camaraId=listaDeCamaras.find((camara)=>camara.label==e.target.value).deviceId
         startScannerCam(camaraId)
     },false)
     }
