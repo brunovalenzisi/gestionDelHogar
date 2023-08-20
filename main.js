@@ -1,6 +1,7 @@
 
+
 var _scannerIsRunning = false;
-let ListaCamaras=false
+resultados=new ListaDeResultados
 
 
 
@@ -26,17 +27,7 @@ function startScanner() {
                }
         },
         decoder: {
-            readers: [
-                "code_128_reader",
-                "ean_reader",
-                "ean_8_reader",
-                "code_39_reader",
-                "code_39_vin_reader",
-                "codabar_reader",
-                "upc_reader",
-                "upc_e_reader",
-                "i2of5_reader"
-            ],
+            
             locator:{
                 halfSample: true,
                 pathSize: "medium",//x-small,small,medium,large,x-large
@@ -75,6 +66,7 @@ function startScanner() {
     Quagga.onProcessed(function (result) {
         var drawingCtx = Quagga.canvas.ctx.overlay,
         drawingCanvas = Quagga.canvas.dom.overlay;
+     
 
         if (result) {
             if (result.boxes) {
@@ -99,6 +91,7 @@ function startScanner() {
 
     Quagga.onDetected(function (result) {
         console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+        //document.getElementById("comenzar").click()
     });
  
 }
@@ -122,15 +115,15 @@ function startScannerCam(cam) {
      },
      decoder: {
          readers: [
-             "code_128_reader",
+
+            
+             //"code_128_reader",
              "ean_reader",
-             "ean_8_reader",
-             "code_39_reader",
-             "code_39_vin_reader",
-             "codabar_reader",
-             "upc_reader",
-             "upc_e_reader",
-             "i2of5_reader"
+             //"ean_8_reader",
+             //"codabar_reader",
+             //"upc_reader",
+             //"upc_e_reader",
+             
          ],
          locator:{
             halfSample: true,
@@ -193,12 +186,13 @@ function startScannerCam(cam) {
 
 
  Quagga.onDetected(function (result) {
-     console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
- });
+     //console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result)
+     resultados.agregarResultado(result.codeResult.code)
+    });
  }
 
 function cargarSelect(result){
-    let listaDeCamaras=result
+   let listaDeCamaras=result
    let select = document.getElementById("select")
    select.innerHTML=''
    listaDeCamaras.forEach(camara => {
@@ -209,7 +203,7 @@ function cargarSelect(result){
         startScannerCam(camaraId)
     },false)
     }
-    
+
 
 
 
@@ -221,3 +215,19 @@ document.getElementById("comenzar").addEventListener("click", function () {
         startScanner();
     }
 }, false);
+
+
+
+
+
+
+
+
+
+
+/*let salida = document.createElement("h1")
+     salida.innerText=result.codeResult.code
+     let div=document.getElementById("camaras")
+     div.appendChild(salida)
+     document.getElementById("comenzar").click()
+     */
