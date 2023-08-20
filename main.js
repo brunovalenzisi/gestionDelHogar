@@ -16,8 +16,7 @@ function startScanner() {
             constraints: {
                 width: 600,
                 height: 600,
-                facingMode: "environment",
-               },
+                },
                area:{
                 top:"30%",
                 right:"5%",
@@ -198,7 +197,7 @@ function cargarSelect(result){
                  select.innerHTML+=`<option value="${camara.label}">${camara.label}</option>`
      });
      select.addEventListener("change",(e)=>{
-        camaraId=listaDeCamaras.find((camara)=>camara.label==e.target.value).deviceId
+        camaraId=`${listaDeCamaras.find((camara)=>camara.label==e.target.value).deviceId}`
         startScannerCam(camaraId)
     },false)
     }
