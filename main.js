@@ -109,7 +109,6 @@ function startScannerCam(cam) {
          constraints: {
              width: 600,
              height: 600,
-             facingMode: "environment",
              deviceId: cam 
          },
      },
