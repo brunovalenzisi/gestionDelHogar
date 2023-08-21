@@ -25,7 +25,6 @@ function startScannerCam(cam) {
          constraints: {
             width: 250,
             height: 400,
-            facingMode: "environment",  
             deviceId: `${cam}` 
          },
          area: { // defines rectangle of the detection/localization area
