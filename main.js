@@ -17,13 +17,13 @@ function startScannerCam(cam) {
     
     Quagga.init({
        numOfWorkers: navigator.hardwareConcurrency,
-       locate: false,
+       locate: true,
        inputStream: {
          name: "Live",
          type: "LiveStream",
          target: document.querySelector('#scanner-container'),
          constraints: {
-            width: 320,
+            width: 250,
             height: 400,
             facingMode: "environment",  
             deviceId: `${cam}` 
