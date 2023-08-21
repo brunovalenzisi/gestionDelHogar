@@ -23,8 +23,8 @@ function startScannerCam(cam) {
          type: "LiveStream",
          target: document.querySelector('#scanner-container'),
          constraints: {
-             width: 600 ,
-             height: 1500,
+             width: 350 ,
+             height: 700,
              deviceId: `${cam}` 
          },
          area: { // defines rectangle of the detection/localization area
