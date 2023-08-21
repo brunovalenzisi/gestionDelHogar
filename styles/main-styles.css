@@ -39,7 +39,7 @@ main{position: fixed;
 .content-heladera{
     position: absolute;
     width: 39%;
-    bottom:60px;
+    bottom:66px;
     right:0
 }
 
@@ -50,7 +50,7 @@ main{position: fixed;
 .content-puerta{
     position: absolute;
     width: 40%;
-    bottom:65px;
+    bottom:66px;
     left:0
 }
 
