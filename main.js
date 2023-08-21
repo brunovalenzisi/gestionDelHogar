@@ -1,6 +1,9 @@
 
-
 let torch=false
+let nodeScaner=document.getElementById("scanner-container")
+nodeScaner.style.width=window.screen.width
+nodeScaner.style.height=window.screen.height
+nodeScaner.style.padding=50
 nodeLinterna=document.getElementById("linterna")
 nodeLinterna.addEventListener("click",()=>{switchLinterna()},false)
 var _scannerIsRunning = false;
@@ -11,6 +14,7 @@ navigator.mediaDevices.enumerateDevices().then(result=>{
 })
 
 function startScannerCam(cam) {
+    
     Quagga.init({
        numOfWorkers: navigator.hardwareConcurrency,
        locate: true,
@@ -19,8 +23,8 @@ function startScannerCam(cam) {
          type: "LiveStream",
          target: document.querySelector('#scanner-container'),
          constraints: {
-             width: 400,
-             height: 400,
+             width: 1440,
+             height: 2960,
              deviceId: `${cam}` 
          },
          area: { // defines rectangle of the detection/localization area
@@ -74,6 +78,7 @@ function startScannerCam(cam) {
 
      console.log("Initialization finished. Ready to start");
      Quagga.start();
+
      
 
      // Set flag to is running
@@ -145,6 +150,7 @@ function switchLinterna(){
         torch=true
         }
 }
+
 
 
 
