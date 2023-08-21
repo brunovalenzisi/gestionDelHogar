@@ -20,7 +20,7 @@ function startScannerCam(cam) {
          target: document.querySelector('#scanner-container'),
          constraints: {
              width: 400,
-             height: 250,
+             height: 400,
              deviceId: `${cam}` 
          },
          area: { // defines rectangle of the detection/localization area
@@ -116,7 +116,7 @@ function cargarSelect(result){
    let select = document.getElementById("select")
    select.innerHTML=''
    listaDeCamaras.forEach(camara => {
-                 select.innerHTML+=`<option value="${camara.label}">${camara.label} ${camara.deviceId} </option>`
+                 select.innerHTML+=`<option value="${camara.label}">${camara.label}</option>`
      });
      select.addEventListener("change",(e)=>{
         camaraId=listaDeCamaras.find((camara)=>camara.label==e.target.value).deviceId
