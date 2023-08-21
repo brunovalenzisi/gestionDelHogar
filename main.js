@@ -46,7 +46,7 @@ function startScannerCam(cam) {
          ],
          locator:{
             halfSample: true,
-            pathSize: x-small, //"medium",x-small,small,medium,large,x-large
+            pathSize: "x-small", //"medium",x-small,small,medium,large,x-large
 
 
         },
