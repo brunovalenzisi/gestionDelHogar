@@ -17,7 +17,7 @@ function startScannerCam(cam) {
     
     Quagga.init({
        numOfWorkers: navigator.hardwareConcurrency,
-       locate: true,
+       locate: false,
        inputStream: {
          name: "Live",
          type: "LiveStream",
@@ -28,12 +28,12 @@ function startScannerCam(cam) {
             facingMode: "environment",  
             deviceId: `${cam}` 
          },
-         area: { // defines rectangle of the detection/localization area
-            top: "40%",    // top offset
+         /*area: { // defines rectangle of the detection/localization area
+            top: "15%",    // top offset
             right: "5%",  // right offset
             left: "5%",   // left offset
-            bottom: "40%"  // bottom offset
-          },
+            bottom: "15%"  // bottom offset
+          },*/
      },
 
      frecuency:30,
