@@ -5,17 +5,28 @@
     font-family: sans-serif;
 }
 body{
-    background-color: #F8A653;
+    background-color: #A2DADB;
 }
 
 .content-cabecera{
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
     width: 100%;
-    margin-top: 50px;
+    height: 70px;
     text-align: center;
 }
 
+main{position: fixed;
+    height: 100%;
+    background-image: url(../complementos/imagenes/pared.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
 .content-habitacion{
     width: 100%;
+    height: 100%;
+  
 
 }
 .content-alacena{
@@ -31,7 +42,7 @@ body{
 .content-heladera{
     position: absolute;
     width: 39%;
-    bottom:0;
+    bottom:60px;
     right:0
 }
 
@@ -42,10 +53,12 @@ body{
 .content-puerta{
     position: absolute;
     width: 40%;
-    bottom:0;
+    bottom:65px;
     left:0
 }
 
 .content-puerta img{
     width: 100%
 }
+
+
