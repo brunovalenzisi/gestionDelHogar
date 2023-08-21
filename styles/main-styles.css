@@ -1,0 +1,51 @@
+*{
+    margin:0 ;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background-color: #F8A653;
+}
+
+.content-cabecera{
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.content-habitacion{
+    width: 100%;
+
+}
+.content-alacena{
+    margin-top:100px ;
+    width: 100%;
+    }
+
+.content-alacena img{
+    width: 100%;
+  
+}
+
+.content-heladera{
+    position: absolute;
+    width: 39%;
+    bottom:0;
+    right:0
+}
+
+.content-heladera img{
+    width: 100%
+}
+
+.content-puerta{
+    position: absolute;
+    width: 40%;
+    bottom:0;
+    left:0
+}
+
+.content-puerta img{
+    width: 100%
+}
