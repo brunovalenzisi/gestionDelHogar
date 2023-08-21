@@ -24,7 +24,7 @@ function startScannerCam(cam) {
          target: document.querySelector('#scanner-container'),
          constraints: {
              width: 300  ,
-             height: 700,
+            
              deviceId: `${cam}` 
          },
          area: { // defines rectangle of the detection/localization area
@@ -55,11 +55,11 @@ function startScannerCam(cam) {
 
         },
          debug: {
-             showCanvas: false,
+             showCanvas: true,
              showPatches: false,
              showFoundPatches: false,
              showSkeleton: false,
-             showLabels: false,
+             showLabels: true,
              showPatchLabels: false,
              showRemainingPatchLabels: false,
              boxFromPatches: {
