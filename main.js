@@ -23,8 +23,8 @@ function startScannerCam(cam) {
          type: "LiveStream",
          target: document.querySelector('#scanner-container'),
          constraints: {
-            width: 480,
-            height: 320,
+            width: 320,
+            height: 400,
             facingMode: "environment",  
             deviceId: `${cam}` 
          },
