@@ -28,12 +28,12 @@ function startScannerCam(cam) {
             facingMode: "environment",  
             deviceId: `${cam}` 
          },
-         /*area: { // defines rectangle of the detection/localization area
-            top: "15%",    // top offset
-            right: "5%",  // right offset
-            left: "5%",   // left offset
-            bottom: "15%"  // bottom offset
-          },*/
+         area: { // defines rectangle of the detection/localization area
+            top: "0%",    // top offset
+            right: "0%",  // right offset
+            left: "0%",   // left offset
+            bottom: "0%"  // bottom offset
+          },
      },
 
      frecuency:30,
@@ -51,7 +51,7 @@ function startScannerCam(cam) {
          ],
          locator:{
             halfSample: true,
-            pathSize: "x-small", //"medium",x-small,small,medium,large,x-large
+            pathSize: "medium", //"medium",x-small,small,medium,large,x-large
 
 
         },
