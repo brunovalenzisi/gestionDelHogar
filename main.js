@@ -23,15 +23,15 @@ function startScannerCam(cam) {
          type: "LiveStream",
          target: document.querySelector('#scanner-container'),
          constraints: {
-             width: window.screen.width ,
-             height: window.screen.height,
+             width: 600 ,
+             height: 1500,
              deviceId: `${cam}` 
          },
          area: { // defines rectangle of the detection/localization area
-            top: "5%",    // top offset
+            top: "40%",    // top offset
             right: "5%",  // right offset
             left: "5%",   // left offset
-            bottom: "5%"  // bottom offset
+            bottom: "40%"  // bottom offset
           },
      },
 
