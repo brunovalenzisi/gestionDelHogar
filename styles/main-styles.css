@@ -18,7 +18,7 @@ body{
 
 main{position: fixed;
     height: 100%;
-    background-image: url(../complementos/imagenes/pared.png);
+    background-image: url(../complementos/imagenes/paredCarrara.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -40,7 +40,7 @@ main{position: fixed;
 
 .content-heladera{
     position: absolute;
-    width: 39%;
+    width: 43%;
     bottom:66px;
     right:0
 }
