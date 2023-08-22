@@ -1,6 +1,12 @@
 
-
 console.log("hola")
+let nodeIngresar = document.getElementById("ingresar")
+nodeIngresar.addEventListener(
+  "click",()=>{
+    animateCSS('.content-ingreso', 'bounce').then(()=>{ window.location.href="./scanner.html"})
+   })
+
+
 const animateCSS = (element, animation, prefix = 'animate__') =>
   // We create a Promise and return it
   new Promise((resolve, reject) => {
@@ -22,4 +28,8 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
   animateCSS('.content-alacena', 'bounce');
   animateCSS('.content-heladera', 'bounce');
   animateCSS('.content-puerta', 'bounce');
+
+
+
+
  

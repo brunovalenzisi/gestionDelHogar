@@ -6,10 +6,12 @@
 }
 body{
     background-color: #A2DADB;
+    max-width: 400px;
 }
 
 .content-cabecera{
     width: 100%;
+   max-width: 400px;
     height: 70px;
     display: flex;
     align-items: center;
@@ -17,6 +19,8 @@ body{
 }
 
 main{position: fixed;
+    
+    max-width: 400px;
     height: 100%;
     background-image: url(../complementos/imagenes/paredCarrara.png);
     background-repeat: no-repeat;
@@ -42,7 +46,8 @@ main{position: fixed;
     position: absolute;
     width: 43%;
     bottom:66px;
-    right:0
+    right:0;
+    padding:3px;
 }
 
 .content-heladera img{
@@ -53,7 +58,8 @@ main{position: fixed;
     position: absolute;
     width: 40%;
     bottom:66px;
-    left:0
+    left:0;
+    padding:3px;
 }
 
 .content-puerta img{
@@ -94,8 +100,13 @@ main{position: fixed;
 }
 
 .content-menu{
-    padding: 10px;
-    width: 70px;
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+    padding: 3px;
+    
+    
+    width: 71px;
     
     
 }
@@ -103,4 +114,17 @@ main{position: fixed;
 .content-menu img{
     width: 100%
 }
+
+.buttons-box{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+
+    
+  
+
 
