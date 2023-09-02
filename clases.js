@@ -1,37 +1,52 @@
 
-
-
-
 class ListaDeResultados{
-lista=[]
+listaCheck=[]
+listaOK=[]
 agregarResultado(resultado){
-    if(this.lista.find((res)=>res.codigo==resultado)){
-        this.lista.find((res)=>res.codigo==resultado).cantidad++
+    if(this.listaCheck.find((res)=>res.codigo==resultado)){
+        this.listaCheck.find((res)=>res.codigo==resultado).cantidad++
     }else{
         let nuevoCodigo={"codigo":resultado,"cantidad":1}
-        this.lista.push(nuevoCodigo)       
+        this.listaCheck.push(nuevoCodigo)       
     }
     this.encontrarVerdadero()
 }
 
 encontrarVerdadero(){
-      let lecturasTotales=this.lista.reduce((acumulador,current)=>acumulador+current.cantidad,0)
-      let cantidades = this.lista.map(function (resultado) {
+      let lecturasTotales=this.listaCheck.reduce((acumulador,current)=>acumulador+current.cantidad,0)
+      let cantidades = this.listaCheck.map(function (resultado) {
         return resultado.cantidad;
       });
       let mayorLectura=Math.max(...cantidades)
       if(lecturasTotales>=10 && mayorLectura/lecturasTotales>=0.3){
-        let codigoResultado=this.lista.find((res)=>res.cantidad==mayorLectura).codigo
-   alert(`el codigo es: ${codigoResultado}` )
-   this.limpiarLista()
+        let codigoResultado=this.listaCheck.find((res)=>res.cantidad==mayorLectura).codigo
+       console.log(`el codigo es: ${codigoResultado}`)
+       this.mostrarProducto(codigoResultado)
+   
+    
+   this.limpiarlistaCheck()
 
       }
 
 }
 
-limpiarLista(){
-    this.lista=[]
+limpiarlistaCheck(){
+    this.listaCheck=[]
 }
 
+mostrarProducto(codigo){
+
+    fetch('./complementos/productos.json')
+    .then(response=>response.json())
+    .then(response=>{
+        let codigoBuscado=codigo
+        let listaDeProductos=response
+        console.log(listaDeProductos)
+        console.log(codigo)
+        console.log(listaDeProductos[0].codigo)
+        let productoAMostrar=listaDeProductos.find((elemento)=>elemento.codigo==codigoBuscado).producto
+       alert(productoAMostrar)
+})
+}
 }
 

@@ -125,6 +125,7 @@ function cargarSelect(result){
      });
      select.addEventListener("change",(e)=>{
         camaraId=listaDeCamaras.find((camara)=>camara.label==e.target.value).deviceId
+        console.log(listaDeCamaras.find((camara)=>camara.label==e.target.value))
         startScannerCam(camaraId)
     },false)
     }
