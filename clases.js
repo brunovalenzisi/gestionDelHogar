@@ -34,19 +34,17 @@ limpiarlistaCheck(){
     this.listaCheck=[]
 }
 
-mostrarProducto(codigo){
+mostrarProducto(cod){
 
     fetch('./complementos/productos.json')
     .then(response=>response.json())
     .then(response=>{
-        let codigoBuscado=codigo
+        let codigoBuscado=cod.toString()
         let listaDeProductos=response
-        console.log(listaDeProductos)
-        console.log(codigo)
-        console.log(listaDeProductos[0].codigo)
-        let productoAMostrar=listaDeProductos.find((elemento)=>elemento.codigo==codigoBuscado).producto
-       alert(productoAMostrar)
-})
+        //console.table(listaDeProductos)
+        let productoAMostrar=listaDeProductos.find((elemento)=>elemento.CodigoEan.toString()==codigoBuscado).Producto.toString()
+        return productoAMostrar
+}).then((response)=>{alert(response)})
 }
 }
 
