@@ -22,7 +22,7 @@ encontrarVerdadero(){
         let codigoResultado=this.listaCheck.find((res)=>res.cantidad==mayorLectura).codigo
        console.log(`el codigo es: ${codigoResultado}`)
        this.mostrarProducto(codigoResultado)
-   
+       
     
    this.limpiarlistaCheck()
 
