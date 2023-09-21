@@ -40,12 +40,12 @@ function startScannerCam(cam) {
          readers: [
 
             
-             //"code_128_reader",
+             "code_128_reader",
              "ean_reader",
-             //"ean_8_reader",
-             //"codabar_reader",
-             //"upc_reader",
-             //"upc_e_reader",
+             "ean_8_reader",
+             "codabar_reader",
+             "upc_reader",
+             "upc_e_reader",
              
          ],
          locator:{
